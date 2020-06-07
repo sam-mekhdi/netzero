@@ -16,7 +16,14 @@ It's still in its very early stages but you can still check out our progress so 
 2. Install dependencies using ```yarn install```
 3. Start the app using ```yarn start```
 ### Creating a PR
-If you reached this section, then you probably know how to create a PR. Please contribute any suggestion you may have, just ensure you have these 3 sections in your PR:
-1. The what
-2. The why
-3. Any uncertainties?
+If you reached this section, then you probably know how to create a PR. Please contribute any suggestion you may have, just ensure you follow this style of commit messages:
+  * feat: 🚀 <a new feature>
+	* fix: 🐛 <a bug fix>
+	* chore: 🤖 <updating build tasks>
+	* test: ✅ <adding tests>
+	* refactor: 🧹 <cleaning code>
+	* docs: ✏️ <changes to docs>
+and ensure you have these 3 sections in your PR:
+  1. The what
+  2. The why
+  3. Any uncertainties?
