@@ -2,15 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {ServiceWorker} from './components/service-worker/service-worker.component'
-import  {Points} from './components/user.points.component'
+import  {Points} from './components/points.component'
 
 class App extends React.Component {
   constructor() {
     super()
-    this.state={
-        points: 0,
-        transactionID: 0
-      }
+    this.state={points:0}
     }
   
   handleUpdate = () => {
