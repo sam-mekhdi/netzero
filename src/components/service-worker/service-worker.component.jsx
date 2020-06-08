@@ -6,7 +6,8 @@ export class ServiceWorker extends React.Component {
     constructor({updateFunc}) {
         super();
         this.state = {
-          updateFunc: updateFunc
+          updateFunc: updateFunc,
+          //TransactionID: 0
         }    
     }
 
@@ -14,6 +15,7 @@ export class ServiceWorker extends React.Component {
       this.interval = setInterval(() => {
           this.state.updateFunc();
           this.createNotification();
+          //this.setState({TransactionID: Math.floor(Math.random() * 3) + 1  }) //generate random number between 1-3 per transaction
       }, 60000);
     }
 
