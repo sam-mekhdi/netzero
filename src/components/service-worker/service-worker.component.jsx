@@ -6,7 +6,8 @@ export class ServiceWorker extends React.Component {
     constructor({updateFunc}) {
         super();
         this.state = {
-          updateFunc: updateFunc
+          updateFunc: updateFunc,
+          coffeeCount: 0
         }    
     }
 
@@ -14,7 +15,7 @@ export class ServiceWorker extends React.Component {
       this.interval = setInterval(() => {
           this.state.updateFunc();
           this.createNotification();
-      }, 60000);
+      }, 20000); 
     }
 
     componentWillUnmount = () => {
@@ -56,15 +57,25 @@ export class ServiceWorker extends React.Component {
       handleNotificationOnShow(e, tag){
         console.log(e, 'Notification shown tag:' + tag);
       }
+
+      isReward() {
+        this.setState({coffeeCount: this.state.coffeeCount + 1});
+        if (this.state.coffeeCount == 4) {
+              this.setState({coffeeCount: 0});
+              return ("You have 4 points! Here's a coffee on us ☕") 
+        } else {
+              return (4 - (this.state.coffeeCount)) + " more coints to get a coffee on us ☕";
+        }
+      }
     
       createNotification() {
 
         if(this.state.ignore) {
           return;
         }
-        const title = "You got 1 coint 🥳🎉";
-        const body = "2 more coints to get a coffee on us ☕"
-
+       const title = "You got 1 coint 🥳🎉";
+       const body = this.isReward();
+        
         const options = {
           lang: 'en',
           dir: 'ltr',

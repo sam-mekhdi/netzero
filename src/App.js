@@ -25,6 +25,7 @@ class App extends React.Component {
         </header>
         <ServiceWorker updateFunc={this.handleUpdate} />
         {console.log(this.state.points)}
+        
       </div>
     );
   }
