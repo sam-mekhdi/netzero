@@ -16,6 +16,14 @@ class App extends React.Component {
    })
   }
 
+  isReward() {
+    if (this.state.points % 4 == 0) {
+          return ("You have 4 points! Here's a coffee on us ☕") 
+    } else {
+          return (4 - (this.state.points % 4)) + " more coints to get a coffee on us ☕";
+    }
+  }
+
   render = () => {
     return (
       <div className="App">
@@ -23,7 +31,7 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />       
           <Points points = {this.state.points} />
         </header>
-        <ServiceWorker updateFunc={this.handleUpdate} />
+        <ServiceWorker updateFunc={this.handleUpdate} notificationText = {this.isReward()} />
         {console.log(this.state.points)}
         
       </div>

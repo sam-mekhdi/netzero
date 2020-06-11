@@ -6,8 +6,7 @@ export class ServiceWorker extends React.Component {
     constructor({updateFunc}) {
         super();
         this.state = {
-          updateFunc: updateFunc,
-          coffeeCount: 0
+          updateFunc: updateFunc
         }    
     }
 
@@ -58,15 +57,7 @@ export class ServiceWorker extends React.Component {
         console.log(e, 'Notification shown tag:' + tag);
       }
 
-      isReward() {
-        this.setState({coffeeCount: this.state.coffeeCount + 1});
-        if (this.state.coffeeCount == 4) {
-              this.setState({coffeeCount: 0});
-              return ("You have 4 points! Here's a coffee on us ☕") 
-        } else {
-              return (4 - (this.state.coffeeCount)) + " more coints to get a coffee on us ☕";
-        }
-      }
+   
     
       createNotification() {
 
@@ -74,7 +65,7 @@ export class ServiceWorker extends React.Component {
           return;
         }
        const title = "You got 1 coint 🥳🎉";
-       const body = this.isReward();
+       const body = this.props.notificationText;
         
         const options = {
           lang: 'en',
