@@ -7,7 +7,7 @@ export class ServiceWorker extends React.Component {
         super();
         this.state = {
           updateFunc: updateFunc
-        }    
+        }   
     }
 
     componentDidMount = () => {
@@ -57,7 +57,6 @@ export class ServiceWorker extends React.Component {
         console.log(e, 'Notification shown tag:' + tag);
       }
 
-   
     
       createNotification() {
 
@@ -65,7 +64,7 @@ export class ServiceWorker extends React.Component {
           return;
         }
        const title = "You got 1 coint 🥳🎉";
-       const body = this.props.notificationText;
+       const body = this.props.notificationText();
         
         const options = {
           lang: 'en',
